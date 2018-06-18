@@ -41,7 +41,10 @@ void turn(int deg){
 
 task main()
 {
-
+	while(1){
+		moveStraight(24,60);
+		turn(1);
+	}
 
 
 }

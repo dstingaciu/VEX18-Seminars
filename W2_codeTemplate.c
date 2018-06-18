@@ -13,6 +13,7 @@ int inchesToTicks(int dist){
 // @params (degrees_turned)
 void turn(int);
 // @params (direction, distance in inches)
+
 void moveStraight(int dist, int speed, int direction){
 	SensorValue[driveE] = 0;
 	int currentValue = 0;
@@ -21,6 +22,16 @@ void moveStraight(int dist, int speed, int direction){
 	while(abs(currentValue)<targetTicks){
 		motor[Ldrive] = speed*direction;
 		motor[Rdrive] = speed*direction;
+
+void moveStraight(int, int);
+
+void turn(int deg){
+	SensorValue[driveE] = 0;
+	int currentValue = 0;
+	int targetTicks = 240;
+	while(abs(currentValue)<targetTicks){
+		motor[Ldrive] = -40*deg;
+		motor[Rdrive] = 40*deg;
 		currentValue = SensorValue[driveE];
 	}
 	motor[Ldrive] = 0;
